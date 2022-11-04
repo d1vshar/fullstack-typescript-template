@@ -1,9 +1,15 @@
 {
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "moduleResolution": "node"
   },
-  "include": ["src", "next-env.d.ts"]
+  "include": [
+    "src",
+    "next-env.d.ts"
+  ]
 }

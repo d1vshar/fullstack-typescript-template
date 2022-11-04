@@ -19,17 +19,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 
 // src/server.ts
-var import_body_parser = require("body-parser");
 var import_express = __toESM(require("express"));
 var import_morgan = __toESM(require("morgan"));
 var import_cors = __toESM(require("cors"));
 var createServer = () => {
   const app = (0, import_express.default)();
-  app.disable("x-powered-by").use((0, import_morgan.default)("dev")).use((0, import_body_parser.urlencoded)({ extended: true })).use((0, import_body_parser.json)()).use((0, import_cors.default)()).get("/message/:name", (req, res) => {
-    return res.json({ message: `hello ${req.params.name}` });
-  }).get("/healthz", (req, res) => {
-    return res.json({ ok: true });
-  });
+  app.disable("x-powered-by").use((0, import_morgan.default)("dev")).use(import_express.default.urlencoded({ extended: true })).use(import_express.default.json()).use((0, import_cors.default)());
   return app;
 };
 
