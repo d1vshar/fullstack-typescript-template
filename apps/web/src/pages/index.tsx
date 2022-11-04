@@ -1,23 +1,19 @@
 import Head from "next/head";
-import { CounterButton, NewTabLink } from "ui";
+import { GlobalCounterButton } from "../components/GlobalCounterButton";
+import { CounterButton } from "ui";
 
 export default function Store() {
   console.log("Hey! This is Home.");
   return (
     <div className="container">
       <Head>
-        <title>Store | Kitchen Sink</title>
+        <title>Full-stack Web Application Template</title>
       </Head>
       <h1 className="title">
-        Store <br />
-        <span>Kitchen Sink</span>
+        <span>Full-stack Web Application Template</span>
       </h1>
       <CounterButton />
-      <p className="description">
-        Built With{" "}
-        <NewTabLink href="https://turbo.build/repo">Turborepo</NewTabLink> +{" "}
-        <NewTabLink href="https://nextjs.org/">Next.js</NewTabLink>
-      </p>
+      <GlobalCounterButton />
     </div>
   );
 }

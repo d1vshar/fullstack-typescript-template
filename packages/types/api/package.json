@@ -1,8 +1,9 @@
 {
-  "name": "@types/api",
+  "name": "types-api",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
+  "main": "./index.ts",
   "dependencies": {
     "eslint-config-turbo": "latest",
     "eslint": "7.32.0",

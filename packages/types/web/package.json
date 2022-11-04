@@ -1,8 +1,9 @@
 {
-  "name": "@types/web",
+  "name": "types-web",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
+  "main": "./index.ts",
   "dependencies": {
     "eslint-config-turbo": "latest",
     "eslint": "7.32.0",
