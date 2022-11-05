@@ -1,73 +1,59 @@
-# Turborepo starter
+# Full-Stack Typescript Template
+My personal template for hackathon and side projects.
 
-This is an official pnpm starter turborepo.
+<a href="#license"><img alt="GPLv3 License" src="https://img.shields.io/github/license/d1vshar/fullstack-typescript-template">
 
-## What's inside?
 
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
+## Goal
 
-### Apps and Packages
+This template is meant to be used as a hackathon project template. There are two things needed for such a template: development speed and simplicity.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+I will continue adding the minimum required functionality as needed.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+TODO: add proper eslint configurations
 
-### Utilities
+## Tech Stack & Tools
 
-This turborepo has some additional tools already setup for you:
+This template is a mono repo built using [Turbo Repo](https://turbo.build/repo). It uses [pnpm](https://pnpm.io/) as its dependency manager.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+There are two project folders: `apps` and `packages`.
 
-### Build
+`apps` contains "launchable" applications or services. These are meant to be hosted / presented / distributed.
 
-To build all apps and packages, run the following command:
+`packages` contains projects that are being used in `apps`. Sometimes, you need to split common functionality into different packages.
 
+One such feature is types for a REST API (explained below).
+
+[`apps/web`](apps/web): A sample NextJS application that uses [`zustand`](https://github.com/pmndrs/zustand) as its state-management solution.
+
+[`apps/api`](apps/api): A sample REST API built using ExpressJS and uses [`zod`](https://zod.dev) for schema validation.
+
+[`packages/tsconfig`](packages/tsconfig): A package containing all tsconfigs being used in the template. This is useful if you have a lot of packages / apps.
+
+[`packages/types-api`](packages/types-api): A package containing all schema and type definitions for the REST api in `apps/api`
+
+[`packages/ui`](packages/ui): A package containing all common UI components. This is usefull if you have many web applications, that re-use code.
+
+### REST API docs & schemas
+
+One of the biggest challenges in a 48 hours hackathon is to keep track of fast-evolving REST API endpoints. The best way to keep track is to maintain an OpenAPI spec of your API. But writing and maintaining the spec is a new task which removes any speed advantage it might bring.
+
+With the goal of speed and simplicity, I have taken two decisions:
+- Make a hacky utility in `apps/api` that adds a new route `GET /route-list` to your express server. This will list all routes on the live server with their parameters.
+- Maintain zod and typescript types in different package `packages/types-api`. This allows these schemas & types to be imported into web apps. These schemas and types are more than enough to infer the shape of the data the server is exchanging in requests & responses. Any changes to the data format made by the person working on `apps/api` will automatically cause `TypeError`s and `ZodError`s on the client side. It will give the exact information needed to transform to a new data format.
+
+I have implemented sample endpoints and requests in both `apps/api` and `apps/web`.
+
+## Building & Running
+
+Uses the standard turbo-repo & pnpm commands.
 ```
-cd my-turborepo
-pnpm run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-pnpm dlx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-pnpm dlx turbo link
+npm i -g pnpm
+pnpm i
+pnpm dev
+pnpm build
 ```
 
-## Useful Links
+## Licensing
 
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+[MIT License](LICENSE.md)
