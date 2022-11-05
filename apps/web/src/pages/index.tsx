@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { GlobalCounterButton } from "../components/GlobalCounterButton";
 import { CounterButton } from "ui";
+import { HelloButton } from "../components/HelloButton";
 
 export default function Store() {
   console.log("Hey! This is Home.");
+
   return (
     <div className="container">
       <Head>
@@ -14,6 +16,7 @@ export default function Store() {
       </h1>
       <CounterButton />
       <GlobalCounterButton />
+      <HelloButton />
     </div>
   );
 }

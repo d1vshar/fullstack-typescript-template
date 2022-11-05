@@ -22,6 +22,7 @@ export const CounterButton = () => {
         >
           ui
         </code>
+        {" "}package
       </p>
       <div>
         <button

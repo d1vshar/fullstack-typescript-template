@@ -4,8 +4,8 @@
   ],
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "moduleResolution": "node"
   },
   "include": [

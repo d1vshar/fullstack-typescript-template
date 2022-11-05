@@ -1,0 +1,25 @@
+{
+  "name": "types-api",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup index.ts --format esm,cjs --dts --external zod",
+    "clean": "rm -rf dist",
+    "dev": "tsup index.ts --format esm,cjs --watch --dts --external zod"
+  },
+  "dependencies": {
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "tsup": "^6.4.0",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.8.4"
+  }
+}

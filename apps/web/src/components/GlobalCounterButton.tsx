@@ -2,7 +2,7 @@ import * as React from "react";
 import { useGlobalCounterStore } from "../stores/GlobalCounterStore";
 
 export const GlobalCounterButton = () => {
-  const { count, inc } = useGlobalCounterStore()
+  const { count, inc } = useGlobalCounterStore();
   return (
     <div
       style={{
@@ -22,8 +22,8 @@ export const GlobalCounterButton = () => {
           }}
         >
           components
-        </code>
-        {" "}folder
+        </code>{" "}
+        folder and uses global state
       </p>
       <div>
         <button

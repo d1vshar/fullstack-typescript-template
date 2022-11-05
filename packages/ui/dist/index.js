@@ -55,7 +55,9 @@ var CounterButton = () => {
               borderRadius: "0.25rem"
             },
             children: "ui"
-          })
+          }),
+          " ",
+          "package"
         ]
       }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
