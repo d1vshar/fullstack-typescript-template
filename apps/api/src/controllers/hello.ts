@@ -5,7 +5,7 @@ import {
   GetHelloRequestSchema,
   GetHelloRequestType,
   GetHelloResultDataType,
-} from "../../packages/types/types-api/dist";
+} from "types-api";
 
 export const getHello = asyncHandler(
   (req: Request, res: Response, next: NextFunction) => {
